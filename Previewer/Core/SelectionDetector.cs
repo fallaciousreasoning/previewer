@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using SHDocVw;
 
-namespace Previewer
+namespace Previewer.Core
 {
     /// <summary>
     /// Allows you to pick up the currently selected file from an explorer window
@@ -18,12 +14,20 @@ namespace Previewer
     {
         private const string EXPLORER_NAME = "explorer";
 
+        /// <summary>
+        /// Determines whether the currently active window is an explorer window
+        /// </summary>
+        /// <returns></returns>
         public static bool IsExplorerWindowActive()
         {
             var activeHandle = GetForegroundWindow();
             return new SHDocVw.ShellWindows().Cast<InternetExplorer>().Any(window => window.HWND == (int) activeHandle);
         }
 
+        /// <summary>
+        /// Determines if the currently active window is an explorer window AND that there is at least one file selected
+        /// </summary>
+        /// <returns></returns>
         public static bool SelectedAndExplorerActive()
         {
             var activeHandle = GetForegroundWindow();

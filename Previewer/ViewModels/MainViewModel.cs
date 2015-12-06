@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Previewer.Annotations;
+using Previewer.Core;
 using TestApp;
 
 namespace Previewer.ViewModels
