@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Previewer", "Previewer\Previewer.csproj", "{02A24A89-F72A-4BB0-A2E7-42C96402FF51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewerPlugin", "PreviewerPlugin\PreviewerPlugin.csproj", "{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{002A1D98-1416-4BF2-A2E6-FECB0BED8DD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02A24A89-F72A-4BB0-A2E7-42C96402FF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A24A89-F72A-4BB0-A2E7-42C96402FF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A24A89-F72A-4BB0-A2E7-42C96402FF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A24A89-F72A-4BB0-A2E7-42C96402FF51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002A1D98-1416-4BF2-A2E6-FECB0BED8DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002A1D98-1416-4BF2-A2E6-FECB0BED8DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002A1D98-1416-4BF2-A2E6-FECB0BED8DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002A1D98-1416-4BF2-A2E6-FECB0BED8DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
