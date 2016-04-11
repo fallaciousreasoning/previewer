@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Previewer.ViewModels;
 
 namespace TestApp
 {
@@ -20,9 +21,21 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel ViewModel { get { return DataContext as MainViewModel; } }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            ViewModel.SetContent = SetContent;
+        }
+
+        private void SetContent(Control control)
+        {
+            content.Children.Clear();
+
+            if (control == null) return;
+            content.Children.Add(control);
         }
     }
 }

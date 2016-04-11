@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Previewer.Annotations;
 using Previewer.Core;
@@ -15,6 +16,8 @@ namespace Previewer.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        public Action<Control> SetContent;
+
         private string filePath;
 
         public string FilePath
@@ -41,6 +44,9 @@ namespace Previewer.ViewModels
                 
                 FilePath = SelectionDetector.SelectedPath();
                 Application.Current.MainWindow.Show();
+
+                var control = App.PluginRegistrar.GetPreviewerForFile(FilePath);
+                SetContent?.Invoke(control);
             }
             else
                 Application.Current.MainWindow.Hide();

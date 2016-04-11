@@ -31,9 +31,9 @@ namespace PreviewerPlugins.TextPlugin
             return SupportedTypes.Any(file.EndsWith);
         }
 
-        public Task<Control> GetPreviewer(string file)
+        public Control GetPreviewer(string file)
         {
-            return Task.Run(() => GetPreviewSynchronusly(file));
+            return GetPreviewSynchronusly(file);
         }
 
         private Control GetPreviewSynchronusly(string file)

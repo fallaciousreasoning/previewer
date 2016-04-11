@@ -15,6 +15,6 @@ namespace PreviewerPlugins
         string Version { get; }
 
         bool CanPreview(string file);
-        Task<Control> GetPreviewer(string file);
+        Control GetPreviewer(string file);
     }
 }
