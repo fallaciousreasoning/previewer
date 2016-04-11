@@ -27,7 +27,7 @@ namespace Previewer.Core
 
             foreach (var type in types)
             {
-                if (!type.IsClass || !pluginType.IsAssignableFrom(type)) continue;
+                if (!type.IsClass || !pluginType.IsAssignableFrom(type) || type.IsAbstract) continue;
 
                 var created = (IFilePreviewer)Activator.CreateInstance(type);
                 plugins.Add(created);
