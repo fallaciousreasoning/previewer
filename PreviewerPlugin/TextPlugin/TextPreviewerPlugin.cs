@@ -16,7 +16,12 @@ namespace PreviewerPlugins.TextPlugin
             ".cs",
             ".cpp",
             ".ahk",
-            ".bat"
+            ".bat",
+            ".config",
+            ".xml",
+            ".xaml",
+            ".csproj",
+            ".ini"
         };
 
         private static TextPreviewer previewer; 
