@@ -12,6 +12,8 @@
         <local:TextPreviewerViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <TextBlock Text="{Binding Text, TargetNullValue=&lt;Empty File&gt;}"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="{Binding Text, TargetNullValue=&lt;Empty File&gt;}"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>

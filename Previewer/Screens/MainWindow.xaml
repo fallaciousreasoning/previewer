@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TestApp"
         xmlns:ViewModels="clr-namespace:Previewer.ViewModels" x:Class="TestApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{Binding FilePath}" Height="350" Width="525">
     <Window.DataContext>
         <ViewModels:MainViewModel/>
     </Window.DataContext>
+    
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top"/>
         <Grid x:Name="content"/>
     </Grid>
 </Window>
