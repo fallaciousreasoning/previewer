@@ -54,6 +54,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\KeyInterceptor.cs" />
+    <Compile Include="Core\PluginRegistrar.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Screens\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -83,9 +84,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PreviewerPlugin\PreviewerPlugin.csproj">
+    <ProjectReference Include="..\PreviewerPlugin\PreviewerPlugins.csproj">
       <Project>{7be9f935-85dc-49a4-a67d-61c4a60a19cf}</Project>
-      <Name>PreviewerPlugin</Name>
+      <Name>PreviewerPlugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

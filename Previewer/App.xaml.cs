@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Previewer.Core;
 
 namespace TestApp
 {
@@ -15,5 +16,6 @@ namespace TestApp
     public partial class App : Application
     {
         public static readonly Key ActivatorKey = Key.Space;
+        public static readonly PluginRegistrar PluginRegistrar = new PluginRegistrar();
     }
 }

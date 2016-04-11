@@ -7,8 +7,8 @@
     <ProjectGuid>{7BE9F935-85DC-49A4-A67D-61C4A60A19CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PreviewerPlugin</RootNamespace>
-    <AssemblyName>PreviewerPlugin</AssemblyName>
+    <RootNamespace>PreviewerPlugins</RootNamespace>
+    <AssemblyName>PreviewerPlugins</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,6 +34,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,7 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFilePreviewer.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextPlugin\TextPreviewer.xaml.cs">
+      <DependentUpon>TextPreviewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextPlugin\TextPreviewerPlugin.cs" />
+    <Compile Include="TextPlugin\TextPreviewerViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="TextPlugin\TextPreviewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
