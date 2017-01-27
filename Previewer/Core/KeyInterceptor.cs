@@ -31,6 +31,7 @@ namespace Previewer.Core
                         ao.Post(cb, res ? KeyStates.Down : KeyStates.None);
                     }
                     prev = res;
+                    Thread.Sleep(100);
                 }
             });
         }

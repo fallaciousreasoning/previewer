@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -18,18 +19,25 @@ namespace Previewer.ViewModels
     {
         public Action<Control> SetContent;
 
-        private string filePath;
+        private FolderItem folderItem;
 
-        public string FilePath
+        public string FilePath => SelectedFolderItem?.Path;
+
+        public FolderItem SelectedFolderItem
         {
-            get { return filePath; }
+            get { return folderItem; }
             set
             {
-                if (value == filePath) return;
-                filePath = value;
+                if (folderItem == value) return;
+                
+                folderItem = value;
+
+                OnPropertyChanged(nameof(FilePath));
                 OnPropertyChanged();
             }
         }
+
+        public readonly ObservableCollection<FolderItem> ItemsInFolder = new ObservableCollection<FolderItem>();
 
         public MainViewModel()
         {
@@ -42,11 +50,16 @@ namespace Previewer.ViewModels
             {
                 if (!SelectionDetector.SelectedAndExplorerActive()) return;
                 
-                FilePath = SelectionDetector.SelectedPath();
+                SelectedFolderItem = SelectionDetector.SelectedPath();
+                ItemsInFolder.Clear();
+                SelectionDetector.GetItemsInSelectedPath().ForEach(ItemsInFolder.Add);
+
                 Application.Current.MainWindow.Show();
 
                 var control = App.PluginRegistrar.GetPreviewerForFile(FilePath);
                 SetContent?.Invoke(control);
+
+                Application.Current.MainWindow.Activate();
             }
             else
                 Application.Current.MainWindow.Hide();
