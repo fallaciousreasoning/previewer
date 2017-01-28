@@ -38,6 +38,10 @@ namespace Previewer
         protected override void OnStartupNextInstance(StartupNextInstanceEventArgs eventArgs)
         {
             base.OnStartupNextInstance(eventArgs);
+
+            if (eventArgs.CommandLine.Count > 0)
+                (instance.MainWindow as MainWindow).CurrentFile = eventArgs.CommandLine[0];
+
             instance.MainWindow.Activate();
         }
     }
