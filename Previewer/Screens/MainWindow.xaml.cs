@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Previewer.Core;
 using Previewer.ViewModels;
 
 namespace TestApp
@@ -21,7 +22,13 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow 
     {
-        public MainViewModel ViewModel { get { return DataContext as MainViewModel; } }
+        public MainViewModel ViewModel => DataContext as MainViewModel;
+
+        public string CurrentFile
+        {
+            get { return ViewModel.SelectedPath; }
+            set { ViewModel.SelectedPath = value; }
+        }
 
         public MainWindow()
         {

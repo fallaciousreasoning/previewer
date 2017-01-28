@@ -59,7 +59,7 @@ namespace Previewer.Core
                     }
                 }
             }
-            GetItemsInSelectedPath();
+            //GetItemsInSelectedPath();
             return selected;
         }
 

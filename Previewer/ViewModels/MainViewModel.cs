@@ -19,25 +19,20 @@ namespace Previewer.ViewModels
     {
         public Action<Control> SetContent;
 
-        private FolderItem folderItem;
+        private FolderHelper folder;
 
-        public string FilePath => SelectedFolderItem?.Path;
-
-        public FolderItem SelectedFolderItem
+        public FolderHelper Folder
         {
-            get { return folderItem; }
-            set
+            get { return folder; }
+            private set
             {
-                if (folderItem == value) return;
-                
-                folderItem = value;
-
-                OnPropertyChanged(nameof(FilePath));
+                if (Equals(value, folder)) return;
+                folder = value;
                 OnPropertyChanged();
             }
         }
 
-        public readonly ObservableCollection<FolderItem> ItemsInFolder = new ObservableCollection<FolderItem>();
+        public string SelectedPath { get { return Folder?.SelectedItem.Path; } set { SetSelectedFile(value); } }
 
         public MainViewModel()
         {
@@ -49,20 +44,28 @@ namespace Previewer.ViewModels
             if (!Application.Current.MainWindow.IsActive)
             {
                 if (!SelectionDetector.SelectedAndExplorerActive()) return;
+
+                var selected = SelectionDetector.SelectedPath();
                 
-                SelectedFolderItem = SelectionDetector.SelectedPath();
-                ItemsInFolder.Clear();
-                SelectionDetector.GetItemsInSelectedPath().ForEach(ItemsInFolder.Add);
-
+                SetSelectedFile(selected?.Path);
                 Application.Current.MainWindow.Show();
-
-                var control = App.PluginRegistrar.GetPreviewerForFile(FilePath);
-                SetContent?.Invoke(control);
 
                 Application.Current.MainWindow.Activate();
             }
             else
                 Application.Current.MainWindow.Hide();
+        }
+
+        public void SetSelectedFile(string path)
+        {
+            if (path == null) return;
+
+            Folder = new FolderHelper(path);
+
+            var control = App.PluginRegistrar.GetPreviewerForFile(Folder.SelectedItem.Path);
+            SetContent?.Invoke(control);
+
+            OnPropertyChanged(nameof(SelectedPath));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
