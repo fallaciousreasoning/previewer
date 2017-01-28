@@ -13,7 +13,7 @@
     </UserControl.DataContext>
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock Text="{Binding Text, TargetNullValue=&lt;Empty File&gt;}"/>
+            <TextBox Text="{Binding Text, TargetNullValue=&lt;Empty File&gt;}" IsReadOnly="True"/>
         </ScrollViewer>
     </Grid>
 </UserControl>
