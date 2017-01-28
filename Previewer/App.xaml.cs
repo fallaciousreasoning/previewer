@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,5 +18,13 @@ namespace TestApp
     {
         public static readonly Key ActivatorKey = Key.Space;
         public static readonly PluginRegistrar PluginRegistrar = new PluginRegistrar();
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            MainWindow = new MainWindow();
+            MainWindow.Show();
+        }
     }
 }
